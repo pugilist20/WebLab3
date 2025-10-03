@@ -7,6 +7,14 @@
 /* mixins, variables, etc. */
 $gray-medium-light: #eaeaea;
 
+.circle-image {
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  width: 150px; /* опционально */
+  height: 150px; /* опционально */
+  object-fit: cover; /* чтобы изображение правильно вписывалось */
+}
+
 /* universal */
 body {
   padding-top: 60px;
