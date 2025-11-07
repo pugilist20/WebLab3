@@ -1,6 +1,14 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to "sample app", root_path, id: "logo" %>
+
+    <div style="margin: 10px 0; font-size: 0.9em; color: #aaa;">
+      <strong>Users:</strong>
+      <% User.all.each do |user| %>
+        <%= user.name %> (<%= user.email %>)<% unless user == User.last %>, <% end %>
+      <% end %>
+    </div>
+
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
