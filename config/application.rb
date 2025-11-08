@@ -13,6 +13,8 @@ module SampleApp
 
     # Configuration for the application, engines, and railties goes here.
     #
+    config.time_zone = 'Moscow'                  # ← ЭТА СТРОЧКА
+    config.active_record.default_timezone = :local
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

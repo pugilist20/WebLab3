@@ -18,14 +18,25 @@
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-              Account
+              <%= current_user.name %>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <div class="px-3 py-2 small text-muted border-bottom">
+                  <div><strong>Зарегистрирован:</strong></div>
+                  <div><%= l(current_user.signed_up_at, format: :short) %></div>
+                  <div class="mt-1"><strong>Последний вход:</strong></div>
+                  <div><%= current_user.last_sign_in_at ? l(current_user.last_sign_in_at, format: :short) : "сейчас" %></div>
+                </div>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
               <li><%= link_to "Profile", current_user, class: "dropdown-item" %></li>
               <li><%= link_to "Settings", edit_user_path(current_user), class: "dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <%= button_to "Log out", logout_path, method: :delete, class: "dropdown-item border-0 bg-transparent" %>
+                <%= button_to "Log out", logout_path, method: :delete, 
+                              class: "dropdown-item text-danger border-0 bg-transparent text-start w-100" %>
               </li>
             </ul>
           </li>

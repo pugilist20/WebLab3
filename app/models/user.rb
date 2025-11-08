@@ -38,4 +38,12 @@ class User < ActiveRecord::Base
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  before_create :set_signed_up_at
+
+  private
+
+  def set_signed_up_at
+    self.signed_up_at = Time.zone.now
+  end
 end

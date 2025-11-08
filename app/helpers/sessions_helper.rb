@@ -42,4 +42,9 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def log_in(user)
+    session[:user_id] = user.id
+    user.update_attribute(:last_sign_in_at, Time.zone.now)
+  end
 end
